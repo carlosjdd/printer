@@ -10,11 +10,11 @@ def callback(data):
 		GPIO.output(18,GPIO.HIGH)
     elif rec == False:
 		GPIO.output(18,GPIO.LOW)
-    
+
 def listener():
 
     rospy.init_node('on_off_listener', anonymous=True)
-    rospy.Subscriber("switch_onoff", Bool, callback)
+    rospy.Subscriber("switch_printer", Bool, callback)
 
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
