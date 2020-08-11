@@ -15,18 +15,26 @@ def callback_on(data):
 def callback_rgb(data):
     rec = data.data
     try:
-        red = rec[0]
-        green = rec[1]
+        red = rec [0]
+        green = rec [1]
         blue = rec [2]
     except:
         print("Error receiving data")
 
-    print ("Red: ")
-    print (red)
-    print ("Green: ")
-    print (green)
-    print ("Blue: ")
-    print (blue)
+    if red == 0:
+        GPIO.output(17,GPIO.LOW)
+    else:
+        GPIO.output(17,GPIO.HIGH)
+
+    if green == 0:
+        GPIO.output(27,GPIO.LOW)
+    else:
+        GPIO.output(27,GPIO.HIGH)
+
+    if blue == 0:
+        GPIO.output(22,GPIO.LOW)
+    else:
+        GPIO.output(22,GPIO.HIGH)
 
 def listener():
 
@@ -37,6 +45,9 @@ def listener():
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(18,GPIO.OUT)
+    GPIO.setup(17,GPIO.OUT)
+    GPIO.setup(27,GPIO.OUT)
+    GPIO.setup(22,GPIO.OUT)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
