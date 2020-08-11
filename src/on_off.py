@@ -14,9 +14,12 @@ def callback_on(data):
 
 def callback_rgb(data):
     rec = data.data
-    red = rec[0]
-    green = rec[1]
-    blue = rec [2]
+    try:
+        red = rec[0]
+        green = rec[1]
+        blue = rec [2]
+    except:
+        print("Error receiving data")
 
     print ("Red: ")
     print (red)
