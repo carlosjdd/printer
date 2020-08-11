@@ -5,6 +5,7 @@ from std_msgs.msg import Bool
 from std_msgs.msg import Int16MultiArray
 import RPi.GPIO as GPIO
 
+# Callback for switching on the printer
 def callback_on(data):
     rec = data.data
     if rec == True:
@@ -12,8 +13,11 @@ def callback_on(data):
     elif rec == False:
 		GPIO.output(18,GPIO.LOW)
 
+# Callback for the printer ligthning
 def callback_rgb(data):
     rec = data.data
+    
+    # Get from the data the info for the red, green and blue lights
     try:
         red = rec [0]
         green = rec [1]
@@ -21,6 +25,7 @@ def callback_rgb(data):
     except:
         print("Error receiving data")
 
+    # Switch on the lights depending on the data received
     if red == 0:
         GPIO.output(17,GPIO.LOW)
     else:
@@ -38,10 +43,12 @@ def callback_rgb(data):
 
 def listener():
 
+    # Init node and subscribers
     rospy.init_node('on_off_listener', anonymous=True)
     rospy.Subscriber("switch_printer", Bool, callback_on)
     rospy.Subscriber("switch_rgb", Int16MultiArray, callback_rgb)
 
+    # Start every GPIO
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(18,GPIO.OUT)
