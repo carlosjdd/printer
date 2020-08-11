@@ -18,9 +18,12 @@ def callback_rgb(data):
     green = rec[1]
     blue = rec [2]
 
-    print("Red: " + red)
-    print("Green: " + green)
-    print("Blue: " + blue)
+    print ("Red: ")
+    print (red)
+    print ("Green: ")
+    print (green)
+    print ("Blue: ")
+    print (blue)
 
 def listener():
 
