@@ -32,14 +32,14 @@ def callback_rgb(data):
         GPIO.output(2,GPIO.LOW)
 
     if green == 0:
-        GPIO.output(3,GPIO.HIGH)
-    else:
-        GPIO.output(3,GPIO.LOW)
-
-    if blue == 0:
         GPIO.output(4,GPIO.HIGH)
     else:
         GPIO.output(4,GPIO.LOW)
+
+    if blue == 0:
+        GPIO.output(3,GPIO.HIGH)
+    else:
+        GPIO.output(3,GPIO.LOW)
 
 def listener():
 
