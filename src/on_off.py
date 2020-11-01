@@ -27,19 +27,19 @@ def callback_rgb(data):
 
     # Switch on the lights depending on the data received
     if red == 0:
-        GPIO.output(2,GPIO.LOW)
-    else:
         GPIO.output(2,GPIO.HIGH)
+    else:
+        GPIO.output(2,GPIO.LOW)
 
     if green == 0:
-        GPIO.output(3,GPIO.LOW)
-    else:
         GPIO.output(3,GPIO.HIGH)
+    else:
+        GPIO.output(3,GPIO.LOW)
 
     if blue == 0:
-        GPIO.output(4,GPIO.LOW)
-    else:
         GPIO.output(4,GPIO.HIGH)
+    else:
+        GPIO.output(4,GPIO.LOW)
 
 def listener():
 
