@@ -9,14 +9,14 @@ import RPi.GPIO as GPIO
 def callback_on(data):
     rec = data.data
     if rec == True:
-		GPIO.output(18,GPIO.HIGH)
-    elif rec == False:
 		GPIO.output(18,GPIO.LOW)
+    elif rec == False:
+		GPIO.output(18,GPIO.HIGH)
 
 # Callback for the printer ligthning
 def callback_rgb(data):
     rec = data.data
-    
+
     # Get from the data the info for the red, green and blue lights
     try:
         red = rec [0]
