@@ -2,4 +2,5 @@
 
 <launch>
 	<node pkg="printer" name="printer_leds" type="on_off.py" />
+	<node pkg="blynk_ros" name="printer" type="printer.py" />
 </launch>
