@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node pkg="printer" name="printer_leds" type="on_off.py" />
+</launch>
